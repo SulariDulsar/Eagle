@@ -1,0 +1,21 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+eagleLoardTest,Chrome 87.0.4280.88,,,2021-01-07 21:35:38,2021-01-07 21:37:45,2m - 6.440s,PASSED
+,,,,,,,
+Test Cases/Eagle performance test,Chrome 87.0.4280.88,,,2021-01-07 21:35:39,2021-01-07 21:37:45,2m - 6.247s,PASSED
+Start listener action : sampleBeforeTestCase,Chrome 87.0.4280.88,,,2021-01-07 21:35:39,2021-01-07 21:35:39,0.001s,PASSED
+"n = Integer.parseInt(findTestData(""testData"").getValue(14, 1))",Chrome 87.0.4280.88,,,2021-01-07 21:35:39,2021-01-07 21:35:39,0.478s,PASSED
+"overviewPageLoadingTestFlag = findTestData(""testCases"").getValue(2, 1)",Chrome 87.0.4280.88,,,2021-01-07 21:35:39,2021-01-07 21:35:39,0.022s,PASSED
+"refreshAndLoadOverviewPageTestFlag = findTestData(""testCases"").getValue(2, 6)",Chrome 87.0.4280.88,,,2021-01-07 21:35:39,2021-01-07 21:35:40,0.020s,PASSED
+"searchWithGroupTypeTestFlag = findTestData(""testCases"").getValue(2, 2)",Chrome 87.0.4280.88,,,2021-01-07 21:35:40,2021-01-07 21:35:40,0.017s,PASSED
+"dataScreenPageLoadingTestFlag = findTestData(""testCases"").getValue(2, 3)",Chrome 87.0.4280.88,,,2021-01-07 21:35:40,2021-01-07 21:35:40,0.015s,PASSED
+"openApplicationInNewTabTestFlag = findTestData(""testCases"").getValue(2, 4)",Chrome 87.0.4280.88,,,2021-01-07 21:35:40,2021-01-07 21:35:40,0.015s,PASSED
+"navigateToOverviewPageFromOtherPageTestFlag = findTestData(""testCases"").getValue(2, 5)",Chrome 87.0.4280.88,,,2021-01-07 21:35:40,2021-01-07 21:35:40,0.017s,PASSED
+testCaseList = new java.util.HashMap(),Chrome 87.0.4280.88,,,2021-01-07 21:35:40,2021-01-07 21:35:40,0.001s,PASSED
+"if (overviewPageLoadingTestFlag == ""true"")",Chrome 87.0.4280.88,,,2021-01-07 21:35:40,2021-01-07 21:35:40,0.707s,PASSED
+"if (refreshAndLoadOverviewPageTestFlag == ""true"")",Chrome 87.0.4280.88,,,2021-01-07 21:35:40,2021-01-07 21:35:40,0.069s,PASSED
+"if (searchWithGroupTypeTestFlag == ""true"")",Chrome 87.0.4280.88,,,2021-01-07 21:35:40,2021-01-07 21:35:40,0.001s,PASSED
+"if (dataScreenPageLoadingTestFlag == ""true"")",Chrome 87.0.4280.88,,,2021-01-07 21:35:40,2021-01-07 21:35:40,0.061s,PASSED
+"if (openApplicationInNewTabTestFlag == ""true"")",Chrome 87.0.4280.88,,,2021-01-07 21:35:40,2021-01-07 21:35:40,0.053s,PASSED
+"if (navigateToOverviewPageFromOtherPageTestFlag == ""true"")",Chrome 87.0.4280.88,,,2021-01-07 21:35:40,2021-01-07 21:35:41,0.057s,PASSED
+CreateDriver().createDriver(testCaseList),Chrome 87.0.4280.88,,,2021-01-07 21:35:41,2021-01-07 21:37:45,2m - 4.418s,PASSED
+Start listener action : sampleAfterTestCase,Chrome 87.0.4280.88,,,2021-01-07 21:37:45,2021-01-07 21:37:45,0.000s,PASSED

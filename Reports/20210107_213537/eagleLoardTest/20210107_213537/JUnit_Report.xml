@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="eagleLoardTest" time="177.15" tests="1" failures="0" errors="0">
+   <testsuite name="eagleLoardTest" tests="1" failures="0" errors="0" time="177.15" timestamp="2021-01-07 21:35:38" hostname="LIYWE - PC76945.de-prod.dk" id="Test Suites/eagleLoardTest">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform" value=""/>
+         <property name="logFolder" value="C:\\workspace\\EaglePerformanceTest\\Reports\\20210107_213537\\eagleLoardTest\\20210107_213537"/>
+         <property name="logFiles" value="C:\\workspace\\EaglePerformanceTest\\Reports\\20210107_213537\\eagleLoardTest\\20210107_213537\\execution0.log"/>
+         <property name="attachments" value="C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026553005.png, C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026564936.png, C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026599153.png, C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026610569.png, C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026621466.png, C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026630254.png, C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026632928.png, C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026633345.png, C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026641712.png, C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026645469.png, C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026650418.png, C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026659158.png"/>
+         <property name="hostName" value="LIYWE - PC76945.de-prod.dk"/>
+         <property name="os" value="Windows 10 64bit"/>
+         <property name="katalonVersion" value="7.2.1.1"/>
+         <property name="browser" value="Chrome 87.0.4280.88"/>
+         <property name="hostAddress" value="10.62.12.56"/>
+         <property name="sessionId" value="18788a3974d22ec2c37c578e037ab264"/>
+         <property name="seleniumVersion" value="3.141.59"/>
+         <property name="proxyInformation" value="ProxyInformation{proxyOption=NO_PROXY, proxyServerType=HTTP, password=, proxyServerAddress=, proxyServerPort=0, executionList=}"/>
+         <property name="platform" value="Windows 10"/>
+      </properties>
+      <testcase name="Test Cases/Eagle performance test" time="126.247" classname="Test Cases/Eagle performance test" status="PASSED">
+         <system-out><![CDATA[2021-01-07 21:35:39 - [TEST_CASE][PASSED] - Test Cases/Eagle performance test: Test Cases/Eagle performance test
+
+2021-01-07 21:35:39 - [TEST_STEP][PASSED] - Start listener action : sampleBeforeTestCase: null
+
+2021-01-07 21:35:39 - [TEST_STEP][PASSED] - n = Integer.parseInt(findTestData("testData").getValue(14, 1)): null
+
+2021-01-07 21:35:39 - [TEST_STEP][PASSED] - overviewPageLoadingTestFlag = findTestData("testCases").getValue(2, 1): null
+
+2021-01-07 21:35:39 - [TEST_STEP][PASSED] - refreshAndLoadOverviewPageTestFlag = findTestData("testCases").getValue(2, 6): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - searchWithGroupTypeTestFlag = findTestData("testCases").getValue(2, 2): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - dataScreenPageLoadingTestFlag = findTestData("testCases").getValue(2, 3): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - openApplicationInNewTabTestFlag = findTestData("testCases").getValue(2, 4): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - navigateToOverviewPageFromOtherPageTestFlag = findTestData("testCases").getValue(2, 5): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - testCaseList = new java.util.HashMap(): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - if (overviewPageLoadingTestFlag == "true"): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - overviewPageLoadingTest = getInstance().getReportTest("Overview page loading", "Verify overview page loading with" + n + " number of users"): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - testCaseList.put("overviewPageLoadingTest", overviewPageLoadingTest): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - if (refreshAndLoadOverviewPageTestFlag == "true"): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - refreshAndLoadOverviewPageTest = getInstance().getReportTest("Refresh and load Overview page", "Verify refresh application and overview page loading with" + n + " number of users"): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - testCaseList.put("refreshAndLoadOverviewPageTest", refreshAndLoadOverviewPageTest): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - if (searchWithGroupTypeTestFlag == "true"): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - if (dataScreenPageLoadingTestFlag == "true"): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - dataScreenPageLoadingTest = getInstance().getReportTest("Verify Data screen page loading", "Verify Data screen page loading for " + n + " number of users"): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - testCaseList.put("dataScreenPageLoadingTest", dataScreenPageLoadingTest): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - if (openApplicationInNewTabTestFlag == "true"): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - openApplicationInNewTabTest = getInstance().getReportTest("Verify opening eagle app in new tab", "Verify Dopening eagle app in new tabs for " + n + " number of users"): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - testCaseList.put("openApplicationInNewTabTest", openApplicationInNewTabTest): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - if (navigateToOverviewPageFromOtherPageTestFlag == "true"): null
+
+2021-01-07 21:35:40 - [TEST_STEP][PASSED] - navigateToOverviewPageFromOtherPageTest = getInstance().getReportTest("Verify navigating to overview page from other page", "Verify navigating to overview page from other page " + n + " number of users"): null
+
+2021-01-07 21:35:41 - [TEST_STEP][PASSED] - testCaseList.put("navigateToOverviewPageFromOtherPageTest", navigateToOverviewPageFromOtherPageTest): null
+
+2021-01-07 21:35:41 - [TEST_STEP][PASSED] - CreateDriver().createDriver(testCaseList): Delayed 5 second(s)
+
+2021-01-07 21:35:50 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:35:50 - [MESSAGE][PASSED] - Navigate to 'https://development.eagle3.orsted.dk/#/Home' successfully
+
+2021-01-07 21:35:52 - [MESSAGE][PASSED] - Current window maximized
+
+2021-01-07 21:35:53 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026553005.png]]
+
+2021-01-07 21:35:53 - [MESSAGE][PASSED] - Wait for page load successfully
+
+2021-01-07 21:35:55 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:00 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:03 - [MESSAGE][PASSED] - Delayed 10 second(s)
+
+2021-01-07 21:36:04 - [MESSAGE][PASSED] - Object: 'Object Repository/logIn/loginBtn' is clicked on
+
+2021-01-07 21:36:05 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:05 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026564936.png]]
+
+2021-01-07 21:36:06 - [MESSAGE][PASSED] - Object 'Object Repository/logIn/signPage' is present
+
+2021-01-07 21:36:06 - [MESSAGE][PASSED] - Text 'liywe@orsted.dk' is set on object 'Object Repository/logIn/loginEmail'
+
+2021-01-07 21:36:06 - [MESSAGE][PASSED] - Object: 'Object Repository/logIn/nextBtn' is clicked on
+
+2021-01-07 21:36:06 - [MESSAGE][PASSED] - Text 'dedu#654321@' is set on object 'Object Repository/logIn/loginPW'
+
+2021-01-07 21:36:08 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+2021-01-07 21:36:10 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:10 - [MESSAGE][PASSED] - Object: 'Object Repository/logIn/signInBtn' is clicked on
+
+2021-01-07 21:36:12 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+2021-01-07 21:36:14 - [MESSAGE][PASSED] - Object: 'Object Repository/logIn/permissionConfirmationBtn' is clicked on
+
+2021-01-07 21:36:14 - [MESSAGE][PASSED] - Refresh successfully
+
+2021-01-07 21:36:15 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:20 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:25 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:30 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:35 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:39 - [MESSAGE][PASSED] - Object 'Object Repository/overviewPages/readingAndApprova/tableRow' is present
+
+2021-01-07 21:36:39 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026599153.png]]
+
+2021-01-07 21:36:40 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:44 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:44 - [MESSAGE][PASSED] - Refresh successfully
+
+2021-01-07 21:36:45 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:50 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:50 - [MESSAGE][PASSED] - Object 'Object Repository/overviewPages/readingAndApprova/tableRow' is present
+
+2021-01-07 21:36:50 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026610569.png]]
+
+2021-01-07 21:36:55 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:56 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:36:56 - [MESSAGE][PASSED] - Text 'AVV Skibsanløb Træpiller - indtil ultimo 2015' is set on object 'Object Repository/overviewPages/readingAndApprova/groupName'
+
+2021-01-07 21:37:00 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:37:01 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:37:01 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026621466.png]]
+
+2021-01-07 21:37:01 - [MESSAGE][PASSED] - Object: 'Object Repository/overviewPages/readingAndApprova/groupName' is clicked on
+
+2021-01-07 21:37:05 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:37:06 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:37:07 - [MESSAGE][PASSED] - Object 'Object Repository/common/searchBtn' is clickable
+
+2021-01-07 21:37:07 - [MESSAGE][PASSED] - Object: 'Object Repository/common/searchBtn' is clicked on
+
+2021-01-07 21:37:09 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+2021-01-07 21:37:10 - [MESSAGE][PASSED] - Web element with id: 'Object Repository/common/spinner' located by 'By.xpath: //*[@class='spinner spinner-loader ng-star-inserted']
+' is not present after '120' second(s)
+
+2021-01-07 21:37:10 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:37:10 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026630254.png]]
+
+2021-01-07 21:37:10 - [MESSAGE][PASSED] - Modify property of object successfully
+
+2021-01-07 21:37:10 - [MESSAGE][PASSED] - Modify property of object successfully
+
+2021-01-07 21:37:10 - [MESSAGE][PASSED] - Object: 'Object Repository/overviewPages/readingAndApprova/nameHyperLink' is clicked on
+
+2021-01-07 21:37:12 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+2021-01-07 21:37:12 - [MESSAGE][PASSED] - Object 'Object Repository/dataScreen/dataScreenPageHeading' is present
+
+2021-01-07 21:37:13 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026632928.png]]
+
+2021-01-07 21:37:13 - [MESSAGE][PASSED] - Object 'Object Repository/dataScreen/periodField' is present
+
+2021-01-07 21:37:13 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026633345.png]]
+
+2021-01-07 21:37:14 - [MESSAGE][PASSED] - Object: 'Object Repository/overviewPages/readingAndApprova/overViewTab' is clicked on
+
+2021-01-07 21:37:14 - [MESSAGE][PASSED] - Text of object 'Object Repository/overviewPages/readingAndApprova/groupName' is cleared
+
+2021-01-07 21:37:14 - [MESSAGE][PASSED] - Execute JavaScript 'window.open();' successfully
+
+2021-01-07 21:37:14 - [MESSAGE][PASSED] - Current window's index is: 0
+
+2021-01-07 21:37:14 - [MESSAGE][PASSED] - Switched to window with index: '1'
+
+2021-01-07 21:37:15 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:37:16 - [MESSAGE][PASSED] - Navigate to 'https://development.eagle3.orsted.dk/#/Home' successfully
+
+2021-01-07 21:37:20 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:37:21 - [MESSAGE][PASSED] - Object 'Object Repository/overviewPages/readingAndApprova/tableRow' is present
+
+2021-01-07 21:37:22 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026641712.png]]
+
+2021-01-07 21:37:23 - [MESSAGE][PASSED] - Switched to window with index: '0'
+
+2021-01-07 21:37:23 - [MESSAGE][PASSED] - Object: 'Object Repository/masterData/masterDataTab' is clicked on
+
+2021-01-07 21:37:25 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:37:25 - [MESSAGE][PASSED] - Delayed 2 second(s)
+
+2021-01-07 21:37:25 - [MESSAGE][PASSED] - Object 'Object Repository/overviewPages/meterOverview/createNeMeterBtn' is present
+
+2021-01-07 21:37:25 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026645469.png]]
+
+2021-01-07 21:37:26 - [MESSAGE][PASSED] - Object: 'Object Repository/overviewPages/readingAndApprova/overViewTab' is clicked on
+
+2021-01-07 21:37:30 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:37:30 - [MESSAGE][PASSED] - Object 'Object Repository/overviewPages/readingAndApprova/tableRow' is present
+
+2021-01-07 21:37:30 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026650418.png]]
+
+2021-01-07 21:37:30 - [MESSAGE][PASSED] - Object: 'Object Repository/user/userBtn' is clicked on
+
+2021-01-07 21:37:31 - [MESSAGE][PASSED] - Object 'Object Repository/user/signout' is visible
+
+2021-01-07 21:37:34 - [MESSAGE][PASSED] - Delayed 3 second(s)
+
+2021-01-07 21:37:35 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:37:37 - [MESSAGE][PASSED] - Object: 'Object Repository/user/signout' is clicked on
+
+2021-01-07 21:37:39 - [MESSAGE][PASSED] - Object 'Object Repository/logIn/loginBtn' is visible
+
+2021-01-07 21:37:39 - [MESSAGE][PASSED] - Wait for page load successfully
+
+2021-01-07 21:37:39 - [MESSAGE][PASSED] - Taking screenshot successfully
+[[ATTACHMENT|C:\\\\workspace\\\\EaglePerformanceTest\\\\Reports\\\\screenshot1610026659158.png]]
+
+2021-01-07 21:37:40 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:37:44 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:37:45 - [MESSAGE][PASSED] - Delayed 5 second(s)
+
+2021-01-07 21:37:45 - [TEST_STEP][PASSED] - Start listener action : sampleAfterTestCase: null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[2021-01-07 21:35:38 - [TEST_SUITE][PASSED] - eagleLoardTest: Test Cases/Eagle performance test]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>

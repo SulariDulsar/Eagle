@@ -1,0 +1,19 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+eagleLoardTest,Chrome 87.0.4280.88,,,2021-01-07 17:47:09,2021-01-07 17:49:20,2m - 11.188s,PASSED
+,,,,,,,
+Test Cases/Eagle performance test,Chrome 87.0.4280.88,,,2021-01-07 17:47:09,2021-01-07 17:49:20,2m - 11.004s,PASSED
+Start listener action : sampleBeforeTestCase,Chrome 87.0.4280.88,,,2021-01-07 17:47:09,2021-01-07 17:47:09,0.001s,PASSED
+"n = Integer.parseInt(findTestData(""testData"").getValue(14, 1))",Chrome 87.0.4280.88,,,2021-01-07 17:47:09,2021-01-07 17:47:10,0.490s,PASSED
+"overviewPageLoadingTestFlag = findTestData(""testCases"").getValue(2, 1)",Chrome 87.0.4280.88,,,2021-01-07 17:47:10,2021-01-07 17:47:10,0.024s,PASSED
+"searchWithGroupTypeTestFlag = findTestData(""testCases"").getValue(2, 2)",Chrome 87.0.4280.88,,,2021-01-07 17:47:10,2021-01-07 17:47:10,0.019s,PASSED
+"dataScreenPageLoadingTestFlag = findTestData(""testCases"").getValue(2, 3)",Chrome 87.0.4280.88,,,2021-01-07 17:47:10,2021-01-07 17:47:10,0.018s,PASSED
+"openApplicationInNewTabTestFlag = findTestData(""testCases"").getValue(2, 4)",Chrome 87.0.4280.88,,,2021-01-07 17:47:10,2021-01-07 17:47:10,0.016s,PASSED
+"navigateToOverviewPageFromOtherPageTestFlag = findTestData(""testCases"").getValue(2, 5)",Chrome 87.0.4280.88,,,2021-01-07 17:47:10,2021-01-07 17:47:10,0.018s,PASSED
+testCaseList = new java.util.HashMap(),Chrome 87.0.4280.88,,,2021-01-07 17:47:10,2021-01-07 17:47:10,0.001s,PASSED
+"if (overviewPageLoadingTestFlag == ""true"")",Chrome 87.0.4280.88,,,2021-01-07 17:47:10,2021-01-07 17:47:10,0.713s,PASSED
+"if (searchWithGroupTypeTestFlag == ""true"")",Chrome 87.0.4280.88,,,2021-01-07 17:47:10,2021-01-07 17:47:10,0.001s,PASSED
+"if (dataScreenPageLoadingTestFlag == ""true"")",Chrome 87.0.4280.88,,,2021-01-07 17:47:10,2021-01-07 17:47:10,0.074s,PASSED
+"if (openApplicationInNewTabTestFlag == ""true"")",Chrome 87.0.4280.88,,,2021-01-07 17:47:10,2021-01-07 17:47:10,0.062s,PASSED
+"if (navigateToOverviewPageFromOtherPageTestFlag == ""true"")",Chrome 87.0.4280.88,,,2021-01-07 17:47:10,2021-01-07 17:47:11,0.069s,PASSED
+CreateDriver().createDriver(testCaseList),Chrome 87.0.4280.88,,,2021-01-07 17:47:11,2021-01-07 17:49:20,2m - 9.229s,PASSED
+Start listener action : sampleAfterTestCase,Chrome 87.0.4280.88,,,2021-01-07 17:49:20,2021-01-07 17:49:20,0.000s,PASSED

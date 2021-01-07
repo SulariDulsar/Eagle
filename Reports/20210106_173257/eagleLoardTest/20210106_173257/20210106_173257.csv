@@ -1,0 +1,15 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+eagleLoardTest,Chrome 87.0.4280.88,,,2021-01-06 17:32:59,2021-01-06 17:34:31,1m - 31.663s,PASSED
+,,,,,,,
+Test Cases/Eagle performance test,Chrome 87.0.4280.88,,,2021-01-06 17:32:59,2021-01-06 17:34:31,1m - 31.488s,PASSED
+Start listener action : sampleBeforeTestCase,Chrome 87.0.4280.88,,,2021-01-06 17:32:59,2021-01-06 17:32:59,0.001s,PASSED
+"n = Integer.parseInt(findTestData(""testData"").getValue(14, 1))",Chrome 87.0.4280.88,,,2021-01-06 17:33:00,2021-01-06 17:33:01,0.504s,PASSED
+"overviewPageLoadingTestFlag = findTestData(""testCases"").getValue(2, 1)",Chrome 87.0.4280.88,,,2021-01-06 17:33:01,2021-01-06 17:33:01,0.026s,PASSED
+"searchWithGroupTypeTestFlag = findTestData(""testCases"").getValue(2, 2)",Chrome 87.0.4280.88,,,2021-01-06 17:33:01,2021-01-06 17:33:01,0.022s,PASSED
+"dataScreenPageLoadingTestFlag = findTestData(""testCases"").getValue(2, 3)",Chrome 87.0.4280.88,,,2021-01-06 17:33:01,2021-01-06 17:33:01,0.022s,PASSED
+testCaseList = new java.util.HashMap(),Chrome 87.0.4280.88,,,2021-01-06 17:33:01,2021-01-06 17:33:01,0.001s,PASSED
+"if (overviewPageLoadingTestFlag == ""true"")",Chrome 87.0.4280.88,,,2021-01-06 17:33:01,2021-01-06 17:33:01,0.779s,PASSED
+"if (searchWithGroupTypeTestFlag == ""true"")",Chrome 87.0.4280.88,,,2021-01-06 17:33:01,2021-01-06 17:33:01,0.000s,PASSED
+"if (dataScreenPageLoadingTestFlag == ""true"")",Chrome 87.0.4280.88,,,2021-01-06 17:33:01,2021-01-06 17:33:02,0.083s,PASSED
+CreateDriver().createDriver(testCaseList),Chrome 87.0.4280.88,,,2021-01-06 17:33:02,2021-01-06 17:34:31,1m - 29.347s,PASSED
+Start listener action : sampleAfterTestCase,Chrome 87.0.4280.88,,,2021-01-06 17:34:31,2021-01-06 17:34:31,0.001s,PASSED
