@@ -24,20 +24,39 @@ import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import org.openqa.selenium.WebDriver as WebDriver
 import internal.GlobalVariable as GlobalVariable
 import com.katalon.plugin.keyword.extentReport.Extent as Ext
-import java.text.SimpleDateFormat;
+import java.text.SimpleDateFormat
+import java.io.File
 
 public class Report {
 
-	public String reportName = findTestData("report").getValue(1,1)
+	public String reportName = findTestData("report").getValue(1,1);
 	private String reportPath;
-	public ExtentReports extent;
+	public ExtentReports extent = null;
 	private static Report self;
-
+	public String folderPathReport;
+	File file;
 
 	private  Report () {
-		String datapattern = new SimpleDateFormat("yyyy_MM_dd-hh_mm_ss").format(new Date());
-		reportName = reportName + datapattern + ".html";
-		reportPath = findTestData("report").getValue(2,1) + reportName;
+		if(findTestData("testData").getValue(6,1) == "development"){
+			folderPathReport = findTestData("report").getValue(2,1)+ "PerformanceTest-Development-" + GlobalVariable.datepattern + "\\";
+			file = new File(folderPathReport)
+		}else if(findTestData("testData").getValue(6,1) == "staging"){
+			folderPathReport = findTestData("report").getValue(2,2)+ "PerformanceTest-Staging-" + GlobalVariable.datepattern + "\\";
+			file = new File(folderPathReport)
+		}
+
+		//Create directory
+		try{
+
+			file.mkdir()
+
+		}catch(IOException e){
+
+		}
+
+
+		reportName = reportName + GlobalVariable.datepattern  + ".html";
+		reportPath = folderPathReport + reportName ;
 		//print("path" + findTestData("report").getValue(2,1))
 
 
@@ -51,7 +70,7 @@ public class Report {
 		}
 
 		//To add system or environment info by using the addSystemInfo method.
-		extent.addSystemInfo("Environment",findTestData("report").getValue(6,1));
+		extent.addSystemInfo("Environment",findTestData("testData").getValue(6,1));
 		extent.config().reportName(findTestData("report").getValue(1,1))
 
 	}
@@ -112,6 +131,13 @@ public class Report {
 
 		return reportName ;
 	}
+
+
+	public String getFolderPath(){
+
+		return folderPathReport ;
+	}
+
 
 	/*@Keyword
 	 def createReport(ExtentReports report){

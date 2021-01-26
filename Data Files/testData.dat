@@ -6,7 +6,7 @@
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
    <dataFileGUID>2db1bd8e-9216-4bb2-b784-a95c719b39db</dataFileGUID>
-   <dataSourceUrl>C:\workspace\EaglePerformanceTest\testData.xlsx</dataSourceUrl>
+   <dataSourceUrl>C:\workspace\Eagle-PerformanceTest\testData.xlsx</dataSourceUrl>
    <driver>ExcelFile</driver>
    <isInternalPath>false</isInternalPath>
    <query></query>

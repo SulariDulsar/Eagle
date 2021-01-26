@@ -22,6 +22,10 @@ import internal.GlobalVariable
 import com.relevantcodes.extentreports.ExtentReports
 import com.relevantcodes.extentreports.LogStatus
 import com.relevantcodes.extentreports.ExtentTest
+import util.Model
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 public class SearchOverviewPage {
 
@@ -32,7 +36,7 @@ public class SearchOverviewPage {
 	String image
 
 	@Keyword
-	def searchOnlyWithGroupType(String element,String name,ExtentTest test){
+	def searchOnlyWithGroupType(String element,String name,Row row,String performaceExcelPath,ExtentTest test,XSSFWorkbook workbook,XSSFSheet sheet){
 
 		(new support.ImplicitWait()).delayFor(5)
 
@@ -63,6 +67,13 @@ public class SearchOverviewPage {
 
 		responseTime = (new util.ResponseTimeCalculation()).responseTimeCalculation(startTime, endTime)
 
+
+		//Write to excel
+		if(name == "Instance-1"){
+			(new util.WriteExcel()).writeColumnToExcel(performaceExcelPath,responseTime,row,workbook,sheet)
+
+		}
+
 		//Add screen shot to report
 		imageFile = (new support.ScreenShot()).takeScreenShot()
 		image =(new support.ScreenShot()).addScreenShotToReportUsingBase64(imageFile, test)
@@ -75,17 +86,19 @@ public class SearchOverviewPage {
 
 		(new support.ImplicitWait()).delayFor(5)
 
-		(new util.CommonEvents()).setStringvalue('Object Repository/overviewPages/readingAndApprova/groupName',groupName)
+		(new util.CommonEvents()).setStringvalue(element,groupName)
 		(new support.ImplicitWait()).delayFor(5)
 
-		//Add screen shot to report
+		//take screen shot to report
 		imageFile = (new support.ScreenShot()).takeScreenShot()
-		image =(new support.ScreenShot()).addScreenShotToReportUsingBase64(imageFile, test)
-		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, name + "Overview page search with Group Name", image, test)
+		String imageBeforeSearch =(new support.ScreenShot()).addScreenShotToReportUsingBase64(imageFile, test)
 
+		//set image for return
+		Model m = new Model()
+		m.setImage1(imageBeforeSearch)
 
-		(new util.CommonEvents()).click(element, FailureHandling.CONTINUE_ON_FAILURE)
-		(new support.ImplicitWait()).delayFor(5)
+		//(new util.CommonEvents()).click(element, FailureHandling.CONTINUE_ON_FAILURE)
+		//(new support.ImplicitWait()).delayFor(5)
 		(new support.ExplicitWait()).waitForElementClickable('Object Repository/common/searchBtn', 60, FailureHandling.CONTINUE_ON_FAILURE)
 
 
@@ -97,15 +110,17 @@ public class SearchOverviewPage {
 		//Verify Reading and approval page loading
 		(new util.CommonEvents().waitForElementNotPresent('Object Repository/common/spinner', 120))
 
-
 		endTime = System.currentTimeMillis()
 
 		responseTime = (new util.ResponseTimeCalculation()).responseTimeCalculation(startTime, endTime)
+		m.setResponseTime(responseTime)
 
 		//Add screen shot to report
 		imageFile = (new support.ScreenShot()).takeScreenShot()
-		image =(new support.ScreenShot()).addScreenShotToReportUsingBase64(imageFile, test)
-		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, name + " ResponseTime for Overview Page search with Group Name: " + responseTime+" ms", image, test)
+		String imageAfterSearch =(new support.ScreenShot()).addScreenShotToReportUsingBase64(imageFile, test)
+		m.setImage1(imageBeforeSearch)
+		m.setImage2(imageAfterSearch)
 
+		return m
 	}
 }

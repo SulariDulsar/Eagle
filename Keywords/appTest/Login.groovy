@@ -31,23 +31,24 @@ public class Login {
 	def login(String name,ExtentTest test){
 
 		long startTime = System.currentTimeMillis()
-
+		println("startTime begin "+startTime)
 
 		//Click on Login button
 		(new util.CommonEvents()).click('Object Repository/logIn/loginBtn',FailureHandling.STOP_ON_FAILURE)
-		
 
-		//Add screen shot to report
-		File imageFile = (new support.ScreenShot()).takeScreenShot()
-		String image =(new support.ScreenShot()).addScreenShotToReportUsingBase64(imageFile, test)
-		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, name + " Once click on Login button", image, test)
 
-		boolean flag =(new util.CommonEvents()).verifyElementPresent('Object Repository/logIn/signPage',2,FailureHandling.CONTINUE_ON_FAILURE)
+		/*//Add screen shot to report
+		 File imageFile = (new support.ScreenShot()).takeScreenShot()
+		 String image =(new support.ScreenShot()).addScreenShotToReportUsingBase64(imageFile, test)
+		 (new support.Report()).getInstance().getResultStatus(LogStatus.INFO, name + " Once click on Login button", image, test)*/
+
+		boolean flag =(new util.CommonEvents()).verifyElementPresent('Object Repository/logIn/signPage',5,FailureHandling.OPTIONAL)
 		print("Flag "+ flag)
 
 		if (flag){
 			(new util.CommonEvents().setStringvalue('Object Repository/logIn/loginEmail', findTestData("testData").getValue(11, 1)))
 			(new util.CommonEvents().click('Object Repository/logIn/nextBtn', FailureHandling.CONTINUE_ON_FAILURE))
+			(new support.ImplicitWait().delayFor(2))
 			(new util.CommonEvents().setStringvalue('Object Repository/logIn/loginPW', findTestData("testData").getValue(12, 1)))
 			(new support.ImplicitWait().delayFor(2))
 
@@ -57,7 +58,7 @@ public class Login {
 
 			//Click on yes button
 			startTime = System.currentTimeMillis()
-
+			println  ("correct start time " +startTime)
 			(new util.CommonEvents().click('Object Repository/logIn/permissionConfirmationBtn', FailureHandling.CONTINUE_ON_FAILURE))
 
 
@@ -71,9 +72,9 @@ public class Login {
 		/*//Verify Login
 		 (new util.CommonEvents()).verifyElementVisibleCheck('Object Repository/user/userBtn','Login to eagle application successfully')*/
 
-		//reload page
-		(new util.CommonEvents()).refreshCurrentWebPage()
-		startTime = System.currentTimeMillis()
+		/*//reload page
+		 (new util.CommonEvents()).refreshCurrentWebPage()
+		 startTime = System.currentTimeMillis()*/
 
 
 

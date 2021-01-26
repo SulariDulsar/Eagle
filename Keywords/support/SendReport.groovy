@@ -49,7 +49,8 @@ public class SendReport {
 			//comment below to stop sending mails
 			//SendEmail.getInstance().sendEmailWithAttachments();
 
-			(new support.SendEmail()).getInstance().sendEmailWithAttachments()
+			//(new support.SendEmail()).getInstance().sendEmailWithAttachments()
+			(new support.SendEmail()).getInstance().sendOutLookEmailWithAttachments()
 
 		} catch (Exception e) {
 			e.printStackTrace();

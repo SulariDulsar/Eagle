@@ -37,10 +37,10 @@ public class LogOut {
 		(new util.CommonEvents()).verifyElementVisibleCheck('Object Repository/logIn/loginBtn','logout successfully')
 		(new support.ExplicitWait()).waitForPageLoad(16)
 
-		//Add screen shot to report
+		/*//Add screen shot to report
 		File imageFile = (new support.ScreenShot()).takeScreenShot()
 		String image =(new support.ScreenShot()).addScreenShotToReportUsingBase64(imageFile, test)
-		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, name + "Logout", image, test)
+		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, name + "Logout", image, test)*/
 
 	}
 }

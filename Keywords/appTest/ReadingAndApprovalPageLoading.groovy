@@ -23,6 +23,9 @@ import com.relevantcodes.extentreports.ExtentTest
 
 import internal.GlobalVariable
 import com.kms.katalon.core.util.KeywordUtil
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 public class ReadingAndApprovalPageLoading {
 	long startTime
@@ -30,14 +33,14 @@ public class ReadingAndApprovalPageLoading {
 	long responseTime
 
 	@Keyword
-	def readingAndApprovalPageLoading(String name, ExtentTest test){
+	def readingAndApprovalPageLoading(String name,String imageLoginPage,Row row,String performaceExcelPath, ExtentTest test,XSSFWorkbook workbook,XSSFSheet sheet){
 
 		//Login to application
 		startTime = (new appTest.Login()).login(name,test)
 		println(name+" startTime" + startTime)
 
 		//Verify Reading and approval page loading
-		(new util.CommonEvents()).waitForElementPresent('Object Repository/overviewPages/readingAndApprova/tableRow',120)
+		(new util.CommonEvents()).waitForElementPresent('Object Repository/overviewPages/readingAndApprova/tableRow',300)
 
 		endTime = System.currentTimeMillis()
 		println(name+" endTime" + endTime)
@@ -45,10 +48,18 @@ public class ReadingAndApprovalPageLoading {
 		println(name+" responseTime" + responseTime)
 
 
+		//Write to excel
+		if(name == "Instance-1"){
+			(new util.WriteExcel()).writeColumnToExcel(performaceExcelPath,responseTime,row,workbook,sheet)
+
+		}
+
 		//Add screen shot to report
 		File imageFile = (new support.ScreenShot()).takeScreenShot()
 		String image =(new support.ScreenShot()).addScreenShotToReportUsingBase64(imageFile,test)
-		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, name + " ResponseTime for Overview Page load: " + responseTime+" ms", image, test)
+
+		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, "<h6><b> "+name+" </h6></b>  Login page", imageLoginPage, test)
+		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, "<h6><b> "+name+" </h6></b>  ResponseTime for Overview Page load: " +"<h7 style='color:green;'><b> " + responseTime+" ms </h7></b>", image, test)
 		//(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, "ResponseTime: " + responseTime, (new support.ScreenShot()).takeScreenShot(), test)
 
 

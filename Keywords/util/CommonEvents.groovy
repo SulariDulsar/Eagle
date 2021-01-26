@@ -202,10 +202,10 @@ public class CommonEvents {
 	@Keyword
 	def refreshCurrentWebPage () {
 		long startTime = System.currentTimeMillis()
-		
+
 		WebUI.refresh()
-		
-		return startTime 
+
+		return startTime
 	}
 
 
@@ -300,6 +300,17 @@ public class CommonEvents {
 
 		return metereDtails
 
+	}
+	
+	@Keyword
+	def clickHyperLink (String element,String propertyName,String matchCondition,String groupName,Boolean isActive) {
+		//modify hyper link testObject according to the group name
+		TestObject testObjectHyperLink = (new util.CommonEvents()).modifyObjectProperty(element,propertyName, matchCondition, groupName, isActive)
+
+		//Click on name hyperLink
+		(new util.CommonEvents()).clickDynamicElement(testObjectHyperLink, FailureHandling.CONTINUE_ON_FAILURE)
+		(new support.ImplicitWait()).delayFor(2)
+		
 	}
 
 }

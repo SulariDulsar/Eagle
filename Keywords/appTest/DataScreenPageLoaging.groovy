@@ -22,6 +22,9 @@ import internal.GlobalVariable
 import com.relevantcodes.extentreports.ExtentReports
 import com.relevantcodes.extentreports.LogStatus
 import com.relevantcodes.extentreports.ExtentTest
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 public class DataScreenPageLoaging {
 
@@ -33,13 +36,13 @@ public class DataScreenPageLoaging {
 	long responseTimePeriodLoad
 
 	@Keyword
-	def dataScreenPageLoaging(String element,String propertyName,String matchCondition,String groupName,Boolean isActive,ExtentTest test,String name){
+	def dataScreenPageLoaging(String element,String propertyName,String matchCondition,String groupName,Boolean isActive,ExtentTest test,String name,String BeforeSearch,String imageAfterSearch,long responseTimeToSearchWithGroupName,Row row,String performaceExcelPath,XSSFWorkbook workbook,XSSFSheet sheet){
 
 		//modify hyper link testObject according to the group name
 		TestObject testObjectHyperLink = (new util.CommonEvents()).modifyObjectProperty(element,propertyName, matchCondition, groupName, isActive)
 
 		//modify Data screen name heading testObject according to the group name
-		TestObject testObjectDataScreenHeading = (new util.CommonEvents()).modifyObjectProperty('Object Repository/dataScreen/dataScreenPageHeading','text', 'equals',groupName, false)
+		TestObject testObjectDataScreenHeading = (new util.CommonEvents()).modifyObjectProperty('Object Repository/dataScreen/dataScreenPageHeading',propertyName, matchCondition,groupName, isActive)
 
 		/*String frequency = "input-area picker " + findTestData("testData").getValue(3, 1)
 		 println("frequency " + frequency)
@@ -67,20 +70,34 @@ public class DataScreenPageLoaging {
 		responseTimePeriodLoad = (new util.ResponseTimeCalculation()).responseTimeCalculation(startTime, endTimePeriodLoad)
 		println("responseTimePeriodLoad "+responseTimePeriodLoad)
 
+
+		//Write to excel
+		if(name == "Instance-1"){
+			(new util.WriteExcel()).writeColumnToExcel(performaceExcelPath,responseTimeDataScreenPageLoad,row,workbook,sheet)
+
+		}
+
 		//Add screen shot to report
+		int waitTime = (new util.GenerateRandomValue()).generateRandomIntValue()
+		(new support.ImplicitWait()).delayFor(waitTime)
+
+		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, "<h6><b> "+name+" </h6></b> Overview page search with Group Name", BeforeSearch, test)
+		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, "<h6><b> "+name+" </h6></b> ResponseTime for Overview Page search with Group Name: " + "<h7 style='color:green;'><b> " +responseTimeToSearchWithGroupName+ " ms </h7></b>", imageAfterSearch, test)
+
 		String imageDataScreenLoad =(new support.ScreenShot()).addScreenShotToReportUsingBase64(imageFileDataScreenLoad, test)
-		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, name + " ResponseTime for Data Screen page load: " + responseTimePeriodLoad+" ms", imageDataScreenLoad, test)
+		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, "<h6><b> "+name+" </h6></b> ResponseTime for Data Screen page load: " + "<h7 style='color:green;'><b> " +responseTimeDataScreenPageLoad+" ms </h7></b>", imageDataScreenLoad, test)
 
 		String imagePeriodLoad =(new support.ScreenShot()).addScreenShotToReportUsingBase64(imageFilePeriodLoad, test)
-		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, name + " ResponseTime for Period load: " + responseTimePeriodLoad+" ms", imagePeriodLoad, test)
+		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, "<h6><b> "+name+" </h6></b> ResponseTime for Period load: " +"<h7 style='color:green;'><b> " +responseTimePeriodLoad+" ms </h7></b>", imagePeriodLoad, test)
 
-		
-		//Click on overview tab
-		(new util.CommonEvents()).click('Object Repository/overviewPages/readingAndApprova/overViewTab', FailureHandling.CONTINUE_ON_FAILURE)
-		
-		//Clear search
-		(new util.CommonEvents()).clearText('Object Repository/overviewPages/readingAndApprova/groupName', FailureHandling.CONTINUE_ON_FAILURE)
-		
-		
+
+		if(findTestData("testCases").getValue(2, 8) == false){
+			//Click on overview tab
+			(new util.CommonEvents()).click('Object Repository/overviewPages/readingAndApprova/overViewTab', FailureHandling.CONTINUE_ON_FAILURE)
+
+			//Clear search
+			(new util.CommonEvents()).clearText('Object Repository/overviewPages/readingAndApprova/groupName', FailureHandling.CONTINUE_ON_FAILURE)
+
+		}
 	}
 }

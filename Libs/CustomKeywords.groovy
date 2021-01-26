@@ -7,6 +7,12 @@ import java.lang.String
 
 import com.relevantcodes.extentreports.ExtentTest
 
+import org.apache.poi.ss.usermodel.Row
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook
+
+import org.apache.poi.xssf.usermodel.XSSFSheet
+
 import com.kms.katalon.core.model.FailureHandling
 
 import com.kms.katalon.core.testobject.TestObject
@@ -35,11 +41,19 @@ def static "support.ImplicitWait.delayFor"(
 def static "appTest.OpenApplicationInNewTab.openApplicationInNewTab"(
     	String url	
      , 	ExtentTest test	
-     , 	String name	) {
+     , 	String name	
+     , 	Row row	
+     , 	String performaceExcelPath	
+     , 	XSSFWorkbook workbook	
+     , 	XSSFSheet sheet	) {
     (new appTest.OpenApplicationInNewTab()).openApplicationInNewTab(
         	url
          , 	test
-         , 	name)
+         , 	name
+         , 	row
+         , 	performaceExcelPath
+         , 	workbook
+         , 	sheet)
 }
 
 def static "appTest.Login.login"(
@@ -47,6 +61,18 @@ def static "appTest.Login.login"(
      , 	ExtentTest test	) {
     (new appTest.Login()).login(
         	name
+         , 	test)
+}
+
+def static "appTest.SearchGroupOverview.searchOnlyWithGroupName"(
+    	String element	
+     , 	String name	
+     , 	String groupName	
+     , 	ExtentTest test	) {
+    (new appTest.SearchGroupOverview()).searchOnlyWithGroupName(
+        	element
+         , 	name
+         , 	groupName
          , 	test)
 }
 
@@ -80,14 +106,26 @@ def static "util.GenerateRandomValue.generateRandomValu"() {
     (new util.GenerateRandomValue()).generateRandomValu()
 }
 
+def static "util.GenerateRandomValue.generateRandomIntValue"() {
+    (new util.GenerateRandomValue()).generateRandomIntValue()
+}
+
 def static "appTest.SearchOverviewPage.searchOnlyWithGroupType"(
     	String element	
      , 	String name	
-     , 	ExtentTest test	) {
+     , 	Row row	
+     , 	String performaceExcelPath	
+     , 	ExtentTest test	
+     , 	XSSFWorkbook workbook	
+     , 	XSSFSheet sheet	) {
     (new appTest.SearchOverviewPage()).searchOnlyWithGroupType(
         	element
          , 	name
-         , 	test)
+         , 	row
+         , 	performaceExcelPath
+         , 	test
+         , 	workbook
+         , 	sheet)
 }
 
 def static "appTest.SearchOverviewPage.searchOnlyWithGroupName"(
@@ -346,6 +384,42 @@ def static "util.CommonEvents.setMeterDetails"(
          , 	optionalFieldflag)
 }
 
+def static "util.CommonEvents.clickHyperLink"(
+    	String element	
+     , 	String propertyName	
+     , 	String matchCondition	
+     , 	String groupName	
+     , 	Boolean isActive	) {
+    (new util.CommonEvents()).clickHyperLink(
+        	element
+         , 	propertyName
+         , 	matchCondition
+         , 	groupName
+         , 	isActive)
+}
+
+def static "appTest.DataScreenGetDataLoading.dataScreenGetDataLoading"(
+    	String name	
+     , 	Row row1	
+     , 	Row row2	
+     , 	Row row3	
+     , 	String performaceExcelPath	
+     , 	XSSFWorkbook workbook	
+     , 	XSSFSheet sheet	
+     , 	WebDriver driver	
+     , 	ExtentTest test	) {
+    (new appTest.DataScreenGetDataLoading()).dataScreenGetDataLoading(
+        	name
+         , 	row1
+         , 	row2
+         , 	row3
+         , 	performaceExcelPath
+         , 	workbook
+         , 	sheet
+         , 	driver
+         , 	test)
+}
+
 def static "appTest.UserRoleChange.userRoleChange"(
     	String userRoleElemnt	) {
     (new appTest.UserRoleChange()).userRoleChange(
@@ -354,10 +428,20 @@ def static "appTest.UserRoleChange.userRoleChange"(
 
 def static "appTest.ReadingAndApprovalPageLoading.readingAndApprovalPageLoading"(
     	String name	
-     , 	ExtentTest test	) {
+     , 	String imageLoginPage	
+     , 	Row row	
+     , 	String performaceExcelPath	
+     , 	ExtentTest test	
+     , 	XSSFWorkbook workbook	
+     , 	XSSFSheet sheet	) {
     (new appTest.ReadingAndApprovalPageLoading()).readingAndApprovalPageLoading(
         	name
-         , 	test)
+         , 	imageLoginPage
+         , 	row
+         , 	performaceExcelPath
+         , 	test
+         , 	workbook
+         , 	sheet)
 }
 
 def static "appTest.Notification.verifyNotificationCount"() {
@@ -377,10 +461,12 @@ def static "appTest.Notification.clickLatestNotification"(
 }
 
 def static "util.OpenBrowser.openBrowser"(
-    	WebDriver driver	
+    	String name	
+     , 	WebDriver driver	
      , 	ExtentTest test	) {
     (new util.OpenBrowser()).openBrowser(
-        	driver
+        	name
+         , 	driver
          , 	test)
 }
 
@@ -410,12 +496,28 @@ def static "util.CreateDriver.createDriver"(
         	testCaseList)
 }
 
+def static "util.Model.addGlobalVariable"(
+    	String name	
+     , 	Object value	) {
+    (new util.Model()).addGlobalVariable(
+        	name
+         , 	value)
+}
+
 def static "appTest.NavigateToOverviewPageFromOtherPage.navigateToOverviewPageFromOtherPage"(
     	String name	
-     , 	ExtentTest test	) {
+     , 	ExtentTest test	
+     , 	Row row	
+     , 	String performaceExcelPath	
+     , 	XSSFWorkbook workbook	
+     , 	XSSFSheet sheet	) {
     (new appTest.NavigateToOverviewPageFromOtherPage()).navigateToOverviewPageFromOtherPage(
         	name
-         , 	test)
+         , 	test
+         , 	row
+         , 	performaceExcelPath
+         , 	workbook
+         , 	sheet)
 }
 
 def static "appTest.DataScreenPageLoaging.dataScreenPageLoaging"(
@@ -425,7 +527,14 @@ def static "appTest.DataScreenPageLoaging.dataScreenPageLoaging"(
      , 	String groupName	
      , 	Boolean isActive	
      , 	ExtentTest test	
-     , 	String name	) {
+     , 	String name	
+     , 	String BeforeSearch	
+     , 	String imageAfterSearch	
+     , 	long responseTimeToSearchWithGroupName	
+     , 	Row row	
+     , 	String performaceExcelPath	
+     , 	XSSFWorkbook workbook	
+     , 	XSSFSheet sheet	) {
     (new appTest.DataScreenPageLoaging()).dataScreenPageLoaging(
         	element
          , 	propertyName
@@ -433,7 +542,66 @@ def static "appTest.DataScreenPageLoaging.dataScreenPageLoaging"(
          , 	groupName
          , 	isActive
          , 	test
-         , 	name)
+         , 	name
+         , 	BeforeSearch
+         , 	imageAfterSearch
+         , 	responseTimeToSearchWithGroupName
+         , 	row
+         , 	performaceExcelPath
+         , 	workbook
+         , 	sheet)
+}
+
+def static "util.WriteExcel.writeRowToExcel"(
+    	long time	) {
+    (new util.WriteExcel()).writeRowToExcel(
+        	time)
+}
+
+def static "util.WriteExcel.writeColumnToExcel"(
+    	String filePath	
+     , 	long responseTime	
+     , 	Row row	
+     , 	XSSFWorkbook workbook	
+     , 	XSSFSheet sheet	) {
+    (new util.WriteExcel()).writeColumnToExcel(
+        	filePath
+         , 	responseTime
+         , 	row
+         , 	workbook
+         , 	sheet)
+}
+
+def static "util.WriteExcel.getNumOfRowInSheet"(
+    	String filePath	) {
+    (new util.WriteExcel()).getNumOfRowInSheet(
+        	filePath)
+}
+
+def static "appTest.GroupSaving.savingExistingDetailChanges"(
+    	String element	
+     , 	String newValue	
+     , 	ExtentTest test	
+     , 	String name	
+     , 	String BeforeSearch	
+     , 	String imageAfterSearch	
+     , 	long responseTimeToSearchWithGroupName	
+     , 	Row row	
+     , 	String performaceExcelPath	
+     , 	XSSFWorkbook workbook	
+     , 	XSSFSheet sheet	) {
+    (new appTest.GroupSaving()).savingExistingDetailChanges(
+        	element
+         , 	newValue
+         , 	test
+         , 	name
+         , 	BeforeSearch
+         , 	imageAfterSearch
+         , 	responseTimeToSearchWithGroupName
+         , 	row
+         , 	performaceExcelPath
+         , 	workbook
+         , 	sheet)
 }
 
 def static "util.RunAsync.start"(
@@ -457,11 +625,19 @@ def static "appTest.MasterDataTabClick.masterData"(
 def static "appTest.VerifyResponseTimeForRefreshpageLoading.verifyResponseTimeForRefreshpageLoading"(
     	String element	
      , 	String name	
-     , 	ExtentTest test	) {
+     , 	Row row	
+     , 	String performaceExcelPath	
+     , 	ExtentTest test	
+     , 	XSSFWorkbook workbook	
+     , 	XSSFSheet sheet	) {
     (new appTest.VerifyResponseTimeForRefreshpageLoading()).verifyResponseTimeForRefreshpageLoading(
         	element
          , 	name
-         , 	test)
+         , 	row
+         , 	performaceExcelPath
+         , 	test
+         , 	workbook
+         , 	sheet)
 }
 
 def static "appTest.LogOut.logOut"(

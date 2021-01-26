@@ -32,6 +32,7 @@ public class CreateDriver {
 	@Keyword
 	def createDriver(HashMap<String,ExtentTest> testCaseList ){
 		int n = Integer.parseInt(findTestData("testData").getValue(14,1))
+		String msedgeDriverPath = findTestData("testData").getValue(5,1)
 		print("n" +n)
 
 		if(findTestData("testData").getValue(13,1) == "chrome"){
@@ -48,23 +49,34 @@ public class CreateDriver {
 
 		else if(findTestData("testData").getValue(13,1) == "edge"){
 
-			System.setProperty('webdriver.edge.driver','C:\\workspace\\Eagle\\msedgedriver.exe')
+			List<WebDriver> driverList = new ArrayList<WebDriver>()
+			System.setProperty('webdriver.edge.driver',msedgeDriverPath )
 
 			for(int i=1;i<=n;i++){
 				String name = "Instance-"+i
 				WebDriver driver  = new EdgeDriver()
+				driverList.add(driver)
 				(new util.RunAsync()).start(name, driver,testCaseList)
 			}
 
 			int x = (new util.Counter()).getInstance().getThreadCount()
 			print("name : " +x)
-
+			int count = 0
 			while((new util.Counter()).getInstance().getThreadCount() <= n){
 
 				int y = (new util.Counter()).getInstance().getThreadCount()
 				print("getCOunt : " +y)
 
 				(new support.ImplicitWait().delayFor(5))
+				count ++
+				/*if(count>findTestData("testCases").getValue(4,1) ){
+				 break;
+				 }*/
+			}
+
+			for(WebDriver d : driverList){
+				d.close();
+				d.quit();
 			}
 		}
 	}

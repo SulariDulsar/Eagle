@@ -26,10 +26,20 @@ public class GenerateRandomValue {
 	@Keyword
 	def generateRandomValu() {
 		/*Random randomGenerator;
-		String randomName;
-		randomGenerator = new Random();
-		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-		randomName =  randomGenerator.nextInt(1000) + formatter.format(new Date());*/
+		 String randomName;
+		 randomGenerator = new Random();
+		 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+		 randomName =  randomGenerator.nextInt(1000) + formatter.format(new Date());*/
 		return new Date().getTime()
+	}
+
+
+	@Keyword
+	def generateRandomIntValue() {
+		Random randomGenerator;
+		randomGenerator = new Random();
+		int randomNo =  randomGenerator.nextInt(10)
+
+		return randomNo
 	}
 }

@@ -22,6 +22,10 @@ import internal.GlobalVariable
 import com.relevantcodes.extentreports.ExtentReports
 import com.relevantcodes.extentreports.LogStatus
 import com.relevantcodes.extentreports.ExtentTest
+import util.Model
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 public class NavigateToOverviewPageFromOtherPage {
 	long startTime
@@ -29,9 +33,9 @@ public class NavigateToOverviewPageFromOtherPage {
 	long responseTime
 
 	@Keyword
-	def navigateToOverviewPageFromOtherPage(String name, ExtentTest test){
+	def navigateToOverviewPageFromOtherPage(String name, ExtentTest test,Row row,String performaceExcelPath,XSSFWorkbook workbook,XSSFSheet sheet){
 		//Click on MasterData Tab
-		(new appTest.MasterDataTabClick()).masterData(name, test)
+		Model m1 = (new appTest.MasterDataTabClick()).masterData(name, test)
 
 		startTime = System.currentTimeMillis()
 		//Click on overview tab
@@ -39,7 +43,7 @@ public class NavigateToOverviewPageFromOtherPage {
 
 
 		//Verify Reading and approval page loading
-		(new util.CommonEvents()).waitForElementPresent('Object Repository/overviewPages/readingAndApprova/tableRow',120)
+		(new util.CommonEvents()).waitForElementPresent('Object Repository/overviewPages/readingAndApprova/tableRow',200)
 
 		endTime = System.currentTimeMillis()
 		println(name+" endTime" + endTime)
@@ -48,9 +52,18 @@ public class NavigateToOverviewPageFromOtherPage {
 
 
 		//Add screen shot to report
+		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, "<h6><b> "+name+" </h6></b> Meter Overview Page load: " + "<h7 style='color:green;'><b> "+ m1.getResponseTime()+" ms </h7></b>", m1.getImage1(), test)
+
+
+		//Write to excel
+		if(name == "Instance-1"){
+			(new util.WriteExcel()).writeColumnToExcel(performaceExcelPath,responseTime,row,workbook,sheet)
+
+		}
+
 		File imageFile = (new support.ScreenShot()).takeScreenShot()
 		String image =(new support.ScreenShot()).addScreenShotToReportUsingBase64(imageFile,test)
-		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, name + " ResponseTime for Overview Page load from Meter Overview page: " + responseTime+" ms", image, test)
+		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, "<h6><b> "+name+" </h6></b> ResponseTime for Overview Page load from Meter Overview page: " + "<h7 style='color:green;'> "+ responseTime+" ms </h7>", image, test)
 		//(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, "ResponseTime: " + responseTime, (new support.ScreenShot()).takeScreenShot(), test)
 
 	}

@@ -28,7 +28,7 @@ import com.relevantcodes.extentreports.ExtentTest
 public class OpenBrowser {
 
 	@Keyword
-	def openBrowser(WebDriver driver,ExtentTest test){
+	def openBrowser(String name,WebDriver driver,ExtentTest test){
 
 		DriverFactory.changeWebDriver(driver)
 		WebUI.navigateToUrl(findTestData("testData").getValue(1,1))
@@ -41,10 +41,11 @@ public class OpenBrowser {
 		//Add screen shot to report
 		File imageFile = (new support.ScreenShot()).takeScreenShot()
 		String image =(new support.ScreenShot()).addScreenShotToReportUsingBase64(imageFile, test)
-		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO,  "Login page", image, test)
+		//(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, name + " Login page", image, test)
 
 		(new support.ExplicitWait()).waitForPageLoad(20)
 
+		return image
 
 	}
 

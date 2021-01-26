@@ -21,8 +21,7 @@ import com.kms.katalon.core.annotation.AfterTestCase
 import com.kms.katalon.core.annotation.AfterTestSuite
 import com.kms.katalon.core.context.TestCaseContext
 import com.kms.katalon.core.context.TestSuiteContext
-
-
+import java.text.SimpleDateFormat
 
 class NewTestListener {
 	
@@ -52,6 +51,12 @@ class NewTestListener {
 	 */
 	@BeforeTestSuite
 	def sampleBeforeTestSuite(TestSuiteContext testSuiteContext) {
+		
+		String datepattern = new SimpleDateFormat("yyyy_MM_dd-hh_mm_ss").format(new Date())
+		//println("datepattern begin" + datepattern)
+		CustomKeywords.'util.Model.addGlobalVariable'('datepattern', datepattern)
+		//CustomKeywords.'util.Model.setDatepattern'(datepattern)
+		println(GlobalVariable.datepattern ) 
 		//println testSuiteContext.getTestSuiteId()
 		
 		

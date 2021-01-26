@@ -132,9 +132,10 @@
 			<attribute name="javadoc_location" value="file:/C:/Program%20Files/Katalon%20Studio/configuration/resources/apidocs/com.kms.katalon.core.windows/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/workspace/EaglePerformanceTest/Plugins/ashot-1.5.4.jar"/>
-	<classpathentry kind="lib" path="C:/workspace/EaglePerformanceTest/Plugins/Extent_Project_Demo.jar"/>
-	<classpathentry kind="lib" path="C:/workspace/EaglePerformanceTest/Plugins/javax.mail-1.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/workspace/Eagle-PerformanceTest/Plugins/ashot-1.5.4.jar"/>
+	<classpathentry kind="lib" path="C:/workspace/Eagle-PerformanceTest/Plugins/Extent_Project_Demo.jar"/>
+	<classpathentry kind="lib" path="C:/workspace/Eagle-PerformanceTest/Plugins/javax.mail-1.5.0.jar"/>
+	<classpathentry kind="lib" path="C:/workspace/Eagle-PerformanceTest/Plugins/jxl-2.6.12.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Katalon Studio/configuration/plugin/install/39668/1.0.8/katalon-studio-basic-report-plugin.jar"/>
 	<classpathentry exported="true" kind="con" path="GROOVY_SUPPORT"/>
 	<classpathentry kind="output" path="bin"/>

@@ -22,6 +22,7 @@ import internal.GlobalVariable
 import com.relevantcodes.extentreports.ExtentReports
 import com.relevantcodes.extentreports.LogStatus
 import com.relevantcodes.extentreports.ExtentTest
+import util.Model
 
 public class MasterDataTabClick {
 	long startTime
@@ -48,8 +49,11 @@ public class MasterDataTabClick {
 		//Add screen shot to report
 		File imageFile = (new support.ScreenShot()).takeScreenShot()
 		String image =(new support.ScreenShot()).addScreenShotToReportUsingBase64(imageFile,test)
-		(new support.Report()).getInstance().getResultStatus(LogStatus.INFO, name + "Meter Overview Page load: "+ responseTime+" ms", image, test)
 
+		Model m1 = new Model()
+		m1.setImage1(image)
+		m1.setResponseTime(responseTime)
 
+		return m1
 	}
 }

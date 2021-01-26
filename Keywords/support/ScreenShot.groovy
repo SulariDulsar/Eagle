@@ -27,17 +27,24 @@ import ru.yandex.qatools.ashot.Screenshot
 import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import org.openqa.selenium.WebDriver as WebDriver
 import javax.imageio.ImageIO as ImageIO
+import org.apache.commons.io.FileUtils
+import java.text.SimpleDateFormat
 
 public class ScreenShot {
+
+	File imageFile
+	String imageName
+	String imagePath
 
 	@Keyword
 	def takeScreenShot() {
 
-		String imageName = "screenshot"+ (new util.GenerateRandomValue()).generateRandomValu()
-		String imagePath = WebUI.takeScreenshot(findTestData("report").getValue(2,1) + imageName + '.png')
-		File imageFile = new File(imagePath)
-		println("imagePath " + imagePath)
-		println("imageFile " + imageFile.getAbsolutePath())
+		String folderPathReport = (new support.Report()).getInstance().getFolderPath()
+		imageName = "screenshot"+ (new util.GenerateRandomValue()).generateRandomValu()
+		imagePath = WebUI.takeScreenshot(folderPathReport  + imageName + '.png')
+
+		imageFile = new File(imagePath)
+
 
 		return imageFile
 	}
@@ -45,20 +52,21 @@ public class ScreenShot {
 
 	@Keyword
 	def takeFullScreenShot() {
-		
+
 		WebDriver driver = DriverFactory.getWebDriver()
 
 		Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver)
-		
-		
+
+		String folderPathReport = (new support.Report()).getInstance().getFolderPath()
+
 		String imageName = "screenshot"+ (new util.GenerateRandomValue()).generateRandomValu()
-		String imagePath = findTestData("report").getValue(2,1) + imageName + '.png'
+		String imagePath = folderPathReport + imageName + '.png'
 		File imageFile = new File(imagePath)
 		ImageIO.write(screenshot.getImage(), "PNG",imageFile )
-		
+
 		println("imagePath full screen "+imagePath)
 
-		
+
 
 		return imageFile
 	}
@@ -89,12 +97,7 @@ public class ScreenShot {
 			e.printStackTrace();
 		}
 
-		println("hhhhhhhhhhhhhh")
 		String imageString = test.addBase64ScreenShot("data:image/png;base64,"+encodedBase64);
-
-
-
-
 		return imageString ;
 
 	}
